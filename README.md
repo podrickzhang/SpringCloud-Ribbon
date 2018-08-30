@@ -25,13 +25,13 @@ Ribbon
       }
     }
 ```
-配置之后，我就可以在com.rosam.ribbon.ConsumerController对RestTemplate进行注入了。<br>
+配置之后，我就可以在com.rosam.ribbon.ConsumerController对RestTemplate进行注入了。
 
-#Ribbon的负载均衡规则
-    默认是轮询的方式，当然我们可以进行修改，在ribbon的resource目录下application.yml中配置
-    `PRODUCT.ribbon.NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule`
-    那么它采用的方式就是随机，我们可以创建两个product服务的实例，在edit Configuration，克隆一个product,修改VM :`-Dserver.port=8081`，修改不同的返回值
-    在浏览器中输入`http://localhost:7071/getProductMsg`,浏览器打印的就是随机的其中一个的返回值。这样就是实现了负载均衡规则。
+Ribbon的负载均衡规则
+默认是轮询的方式，当然我们可以进行修改，在ribbon的resource目录下application.yml中配置
+`PRODUCT.ribbon.NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule`
+那么它采用的方式就是随机，我们可以创建两个product服务的实例，在edit Configuration，克隆一个product,修改VM :`-Dserver.port=8081`，修改不同的返回值.
+在浏览器中输入`http://localhost:7071/getProductMsg`,浏览器打印的就是随机的其中一个的返回值。这样就是实现了负载均衡规则。
     
     
 
